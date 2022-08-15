@@ -1,0 +1,109 @@
+<section class="formulaire">
+    
+    <!--ternaire pour ajouter ou modifier un animal-->
+    <h1><?= $editMode ? "Modifier mon animal :":"Ajoutez un nouvel animal :"?></h1>
+    
+    
+    <form action="<?= $editMode ? "index.php?route=submitModifyAnimal" : "index.php?route=submitAnimal" ?>" method="POST" class="formInscription" enctype="multipart/form-data">
+        
+        <div>
+            <label for="fichier">Sa photo de profil :</label>
+            <p>(taille maximum : 2mo )</p>
+            
+            <!--la photo de l'animal apparait uniquement quand on modifie un animal déjà existant avec une photo déjà enregistré-->
+            <?php if( $editMode ) : ?>
+                <img src="<?= $ModifyAnimal['photo'] ; ?>" class="photoProfil"/>
+            <?php endif ; ?>
+                
+            
+            <input type="file" name="photo" accept='image/png, image/jpeg'>
+        </div>
+        
+        
+        <div>
+            <label for="name">Son nom :</label>
+            <input type="text" autocomplete="off" name="name" value="<?= $editMode ? $ModifyAnimal['name'] : '' ?>" placeholder="nom...">
+        </div>
+        
+        
+        <!---->
+        <div>
+            <label for="birthdate">Sa date de naissance :</label>
+            <!--fonction de conversion de la date pour la récupérer lorsque l'on est en modification-->
+            <input type="date" autocomplete="off" name="birthdate" value="<?= $editMode ? date( 'Y-m-d', strtotime($ModifyAnimal['birthdate'])) : '' ?>">
+        </div>
+        
+        
+        <div>
+            <label for="colories">Sa couleur :</label>
+            <input type="text" autocomplete="off" name="colories" value="<?= $editMode ? $ModifyAnimal['colories'] : '' ?>">
+        </div>
+        
+        
+        <div>
+            <label for="species">Son especes :</label>
+            <select name="species" value="<?= $editMode ? $ModifyAnimal['species'] : '' ?>">
+                <option value="chien" <?= $editMode && $ModifyAnimal['species'] === "chien" ? 'selected' : ''; ?>>Chien</option>
+                <option value="chat" <?= $editMode && $ModifyAnimal['species'] === "chat" ? 'selected' : ''; ?>>Chat</option>
+                <option value="cheval" <?= $editMode && $ModifyAnimal['species'] === "cheval" ? 'selected' : ''; ?>>Cheval</option>
+                <option value="oiseau" <?= $editMode && $ModifyAnimal['species'] === "oiseau" ? 'selected' : ''; ?>>Oiseau</option>
+                <option value="lezard" <?= $editMode && $ModifyAnimal['species'] === "lezard" ? 'selected' : ''; ?>>Lezard</option>
+                <option value="rongeur" <?= $editMode && $ModifyAnimal['species'] === "rongeur" ? 'selected' : ''; ?>>Rongeur</option>
+                <option value="poisson" <?= $editMode && $ModifyAnimal['species'] === "poisson" ? 'selected' : ''; ?>>Poisson</option>
+            </select>
+        </div>
+        
+        
+        <div>
+            <label for="race">Sa race :</label>
+            <input type="text" autocomplete="off" name="race" value="<?= $editMode ? $ModifyAnimal['race'] : '' ?>" placeholder="race de l'animal...">
+        </div>
+        
+        
+        <div>
+            <label for="stérilisé">Stérilisé / castré ? </label>
+            
+            <select name="steril">
+                
+                <option value="true" <?= $editMode && $ModifyAnimal['steril'] === 1 ? 'selected' : ''; ?>>oui</option>
+                <option value="false" <?= $editMode && $ModifyAnimal['steril'] === 0 ? 'selected' : ''; ?> >non</option>
+                
+            </select>
+        </div>
+        
+        
+        <div>
+            <label for="descriptions">description :</label>
+            <textarea name="descriptions" rows="4" cols="30"/><?= $editMode ? $ModifyAnimal['descriptions'] : '' ?></textarea>
+        </div>
+        
+        
+        <div>
+            
+            <!-- l'information a transmettre est caché pour lier le formulaire a l'id_users -->
+            <input type="hidden" name="users_id" value="<?= $user['id_users'] ?>">
+            
+            
+            
+            <!--Si on est en edit mode, on récupere l'id de l'animal que l'on modifie, et sa photo (pour la conserver ou la modifier)-->
+            <?php if( $editMode ) : ?>
+                <input type="hidden" name="id_animal" value="<?= $ModifyAnimal['id_animals'] ?>">
+                <input type="hidden" name="photo_actuelle" value="<?= $ModifyAnimal['photo'] ?>">
+                
+            <?php endif; ?>
+        </div>
+        
+        
+        <!--message d'erreur-->
+        <?php if(isset($_SESSION['message-animal-form'])) : ?>
+            <div>
+                <p class="msg-err">
+                    <span class="error-message"> <?= $_SESSION['message-animal-form'] ?></span>
+                </p>
+            </div>
+        <?php endif ; ?>
+        
+        <button type="submit" class="btn"> <?= (isset($ModifyAnimal))?"Modifier":"Ajouter" ?></button>
+        
+    </form>
+</section>

@@ -1,0 +1,79 @@
+<section>
+    
+    <div class="accueilPersonalPage">
+        <div class="accueilPerso">
+            <h2>Bonjour <?= $user['firstname'] . ' ' . $user['lastname']  ?> </h2>
+    
+            <h3>Bienvenue sur ton profil !</h3>
+        </div>
+        
+        <div class="roue">
+            <a href="index.php?route=monCompte&id=<?= $user['id_users'] ; ?>"><i class="fa-solid fa-gear"></i></a>
+        </div>
+    </div>
+    
+    
+    <div class="InfoImportante">
+        <h3>Informations Importantes</h3>
+        <p>Bonjour et bienvenue sur votre profil, ci-dessous vous pourrez commencer une toute nouvelles experiences collaborative.</p>
+        <p>Vous pourrez ajouter vos animaux, et vous pourrer creer des articles sur différents sujets qui seront partager avec tous les autres utilisateurs !</p>
+        <p>Le respect et la bienveillance sont de mise, vous pourrez retrouver les articles de toute la plateforme dans la partie "zone communautaire", vous pourrez y rechercher ce qui vous plaira !</p>
+    </div>
+    
+   
+    <div>
+        <h3 class="nameZone">Retrouve tes animaux ici :</h3>
+        <a class="addNew btn" href="index.php?route=animalForm&mode=new" >Ajouter un nouvel animal</a>
+        
+        <div id="cards" class="cards">
+                
+                <!--boucle pour récupérer les animaux de compagnies de l'utilisateur-->
+                
+            <?php foreach( $animals as $animal) : ?>
+            <div id="card" class="card">
+
+                
+                    <img class="photoProfilCards" src="<?= $animal['photo'] ; ?> " alt="photo de profil animal"></img>
+                
+                <div class="infoAnimalShort">
+                    
+                    <h4> <?= $animal['name'] ; ?> </h4>
+                    <a href="index.php?route=animalPage&id=<?= $animal['id_animals']; ?>" class="btn" title="+ d'infos">Voir plus</a>
+                    
+                </div>
+            </div>
+            
+            <?php endforeach; ?>
+            
+        </div>
+        
+    </div>
+    
+
+    <div>
+        <h3 class="nameZone">Retrouve tes articles ici :</h3>
+        <a class="addNew btn" href="index.php?route=articleForm&mode=new" >Ajouter un nouvel articles</a>
+        
+        <div class="cards">
+    
+        <?php foreach($articles as $article ) : ?>
+        
+            <div id="articles" class="articles">
+    
+                    
+                <h3 class="title"> <?= $article['title'] ; ?> </h3>
+                
+                <div class="">
+                    
+                    <h4 class="infoRubrique"> <?= $article['info_rubrique'] ; ?> </h4>
+                    
+                </div>
+                
+                <a href="index.php?route=articlePage&id=<?= $article['id_articles'] ; ?>" class="btn lien" >Voir plus</a>
+            </div>
+        
+        <?php endforeach ; ?>
+    </div>
+    
+    </div>
+</section>

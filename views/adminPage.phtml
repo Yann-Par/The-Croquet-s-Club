@@ -1,0 +1,32 @@
+<section>
+    
+    <div>
+        <form class="formNewUser" action="index.php?route=addCategory" method="POST">
+            <label>Ajouter une catégorie</label>
+            <input type="text" name="category"/>
+            <button type="submit" class="btn">Ajouter</button>
+        </form>
+    </div>
+    
+    
+    
+    <div>
+        <input type='text' id='search' class="searchBarUsersByAdmin" placeholder="recherche par le nom !" >
+    </div>
+    
+    
+    
+    <div class='table_admin'>
+        <table id='target' >
+            <?php include 'views/listUserForAdmin.phtml'; ?>
+        </table>
+    </div>
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript" src="./public/js/fetchAdmin.js"></script>
+    
+</section>

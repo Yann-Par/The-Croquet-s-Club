@@ -1,0 +1,79 @@
+<section>
+    
+    <table class="tableInfo">
+        <thead>
+            <tr>
+                
+                <td colspan="2"><h1>Mon article :</h1></td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>Titre :</td>
+                <td> <?= $articles['title']; ?> </td>
+            </tr>
+            
+            
+            <tr>
+                <td>Categorie :</td>
+                <td> <?= $articles['category_name']; ?> </td>
+            </tr>
+            
+            
+            <tr>
+                <td>Sujet :</td>
+                <td> <?= $articles['info_rubrique']; ?> </td>
+            </tr>
+            
+            
+            <tr>
+                <td colspan="2" >Contenu :</td>
+            </tr>
+            
+            <tr>
+                <td colspan="2"> <?= $articles['contenu_rubrique']; ?> </td>
+            </tr>
+            
+                
+                
+            
+            
+            <tr>
+                <td>
+                    <!--vérification en 2 étapes, si je suis connecter, alors je verifie que l'id utilisateur qui a la seesion de connecter correspond a l'id de l'utilasteur qui a creer l'article afin de l'empecher de modifier ou supprimer les articles des autres utilisteurs-->
+                    
+                         <?php if($user['id_users'] === $articles['users_id'] ) : ?>
+                            
+                        
+                            <a href="index.php?route=articleForm&mode=edit&id=<?= $articles['id_articles']; ?>" class="btn" title="Modifier">Modifier</a>
+                            
+                        
+                    <?php endif ; ?>
+                </td>
+    
+    
+                <td>
+                    <!--Double verification en parallele, 1 permission si l'utilisateur est connecté ou une permission si l'admin est connecté-->
+                    <!--si l'id de l'utilisateur connecter ne corrrespond pas a l'id de l'uitilisateur qui a créer l'article, le bouton ne s'affichera pas-->
+                    <?php if($user['id_users'] === $articles['users_id']  || isset($_SESSION['admin'])) : ?>
+                        
+                        <a href="index.php?route=deleteArticle&id=<?= $articles['id_articles']; ?>" class="btn-red" title="supprimer">Supprimer</a>
+                        
+                    <?php endif ; ?>
+                </td>
+                
+                
+            </tr>
+        </tbody>
+    </table>
+   
+    
+    
+    
+    
+    
+    
+    
+</section>

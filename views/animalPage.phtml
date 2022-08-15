@@ -1,0 +1,96 @@
+<section class="animalPage" id="animalPage">
+    
+    <div class="animalProfil">
+        <h1><?= $animal['name']; ?> </h1>
+        <img src="<?= $animal['photo'] ; ?>" class="photoProfil"/>
+       
+        
+       
+    </div>
+    
+    
+    <table class="tableInfo">
+        
+        <thead>
+            <tr>
+                <th colspan="2"><h2>Informations :</h2></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+            <tr>
+                <td><h3> Date de Naissance :</h3></td>
+                <td><p><?= $animalDate; ?> </p></td>
+            </tr>
+            
+            <tr>
+                <td><h3> Espece :</h3></td>
+                <td><p><?= $animal['species']; ?></p></td>
+            </tr>
+            
+            <tr>
+                <td><h3> Race :</h3></td>
+                <td><p><?= $animal['race']; ?></p></td>
+            </tr>
+            
+            <tr>
+                <td><h3> Couleur(s) :</h3></td>
+                <td><p><?= $animal['colories']; ?></p></td>
+            </tr>
+            
+            <tr>
+                <td><h3> Stérilisé :</h3></td>
+                <td>
+                    <p>
+                        <?php if($animal['steril'] === 1)
+                        {
+                            $animal['steril'] = 'oui';
+                        }
+                        elseif($animal['steril'] === 0)
+                        {
+                            $animal['steril'] = 'non';
+                        }
+                        
+                        echo $animal['steril']; ?>
+                    </p>
+                </td>
+            </tr>
+            
+            <tr>
+                <td colspan="2"><h3> Description :</h3></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2"> 
+                    <p class="descri"><?= $animal['descriptions']; ?></p>
+                </td>
+            </tr>
+            
+            <tr>
+                <?php if(isset($_SESSION['connect'])) : ?>
+                    <td>
+                        <a href="index.php?route=animalForm&mode=edit&id=<?= $animal['id_animals']; ?>" name="modifier" class="btn btn-modify" title="modifier" >Modifier</a>
+                    </td>
+                <?php endif ; ?>
+                
+                <td>
+                    <a href="index.php?route=deleteAnimal&id=<?= $animal['id_animals']; ?>" name="supprimer" class="btn-red" title="supprimer">Supprimer</a>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</section>

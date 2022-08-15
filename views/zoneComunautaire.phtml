@@ -1,0 +1,23 @@
+<section>
+    <h1>Les articles de nos adherents</h1>
+    
+    
+    <?php  if( !isset($_SESSION['admin']) && !isset($_SESSION['connect']) ) : ?>
+        <p>Pour ajouter des articles, merci de vous connecter ou de creer un compte : <a class="btn" href=" index.php?route=formNewUser" title="créer un compte" >Ici</a></p>
+    <?php endif ; ?>
+    
+    
+    <!--la div qui permet de récuperer la valeur dans la barre de recherche qui va nous aider a faire la requette ajax-->
+    <div>
+        <input type='text' id='searchArticles' placeholder="rechercher un article ...">
+    </div>
+    
+    
+    <!--la div qui recevra le resultat de la requette ajax-->
+    <div id="target" >
+        <?php include 'views/searchArticles.phtml'; ?>
+    </div>
+    
+    <!--script pour la requette ajax-->
+    <script  src="./public/js/searchArticles.js"></script>
+</section>

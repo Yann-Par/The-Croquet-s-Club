@@ -1,0 +1,1220 @@
+/*====================style général=======================*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height : 1.5em;
+    
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Fredoka One', cursive;
+    font-weight : 300;
+}
+
+a {
+    font-family: 'Fredoka One', cursive;
+    
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    
+    text-align : justify;
+}
+
+.msg-err {
+    text-align : center;
+    padding : 0.5em 0;
+}
+.error-message {
+    color:red;
+    
+}
+
+
+main {
+    padding: 0 1.5em;
+    margin-top : 5.8em;
+    
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    
+    min-width : 100vw;
+}
+
+.formulaire {
+    padding-top: 2em;
+}
+
+
+/*================ parametre des boutons et inputs ====================*/
+
+input {
+    width : 200px;
+    border-radius : 5px;
+    
+}
+
+.btn {
+    background-color: #879f85;
+    color : black;
+    padding: 5px 10px;
+    margin-bottom : 10px;
+    border : none;
+    border-radius : 5px;
+    cursor : pointer;
+}
+
+.btn-red{
+    background-color: #b74d4d;
+    color : black;
+    padding: 5px 10px;
+    margin-top : 10px;
+    margin-bottom : 10px;
+    border : none;
+    border-radius : 5px;
+    cursor : pointer;
+    
+}
+
+.btn-modify{
+    margin-left : 2em;
+}
+
+.btn_suppr_my_count {
+    margin-top : 2em;
+}
+
+
+/*======================= header ===============================*/
+header {
+    position : fixed;
+    top : 0;
+    z-index : 1;
+   
+    
+}
+
+#headerHaut {
+    background-color: #879f85;
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+    height: 5em;
+    width: 100vw;
+}
+
+
+#headerBas {
+    height : 0.9em;
+    
+    background-color: #d7a285;
+}
+
+
+#logo img
+{
+    height : auto;
+    width : 10em;
+    padding-left : 0em;
+    margin-top : 12px;
+}
+
+#navbarMobTab {
+    display : flex;
+    justify-content : space-evenly;
+    width : 12em;
+    
+    
+}
+
+.switchConnect {
+    display : flex;
+    align-items: center;
+}
+
+.connexion {
+    height : 1.7em;
+    width : auto;
+    cursor : pointer;
+}
+
+
+
+
+.deconnect {
+    font-size : 1em;
+    cursor : pointer;
+}
+
+
+
+
+
+
+
+/*=================== menu slide ===============*/
+
+
+
+
+.sidenav {
+    height : 100%;
+    width : 310px;
+    position : fixed;
+    z-index : 1;
+    top: 0;
+    right: -310px;
+    background-color: #d7a285;
+    padding-top : 60px;
+    transition : right 0.5s ease-in-out;
+    
+}
+
+
+
+
+.sidenav a {
+    padding : 8px 8px 8px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    color : #fff;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Fredoka One', cursive;
+;
+}
+
+.sidenav a:hover{
+    color: #879f85;
+}
+
+.sidenav ul {
+    list-style-type:none;
+    padding-top: 3em;
+    padding-left : 0;
+    margin: 0;
+}
+
+.sidenav.active {
+    right:0;
+}
+
+.sidenav .close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+}
+
+
+
+.burger-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    border-radius : 1em;
+    background-color: #fff ;
+    margin : 6px 0;
+    padding-left: 0.5em;
+    cursor : pointer;
+}
+
+.sidenavimg {
+    
+    
+    width : auto;
+    height : 40%!important;
+}
+
+#burg {
+    cursor : pointer;
+
+}
+
+/*===================== modale de connexion =====================*/
+
+.modaleCorgi {
+    display: flex;
+    margin-bottom : -0.7em;
+    margin-left : 2.8em;
+    z-index : 2;
+}
+
+Form {
+    width : 20em;
+    
+    margin : 0 auto;
+    background-color: #d7a285;
+    border-radius: 10px;
+    border : 5px solid #5d3926!important;
+    text-align: center;
+    
+}
+
+
+
+
+
+.modale {
+    width : 100vw;
+    height : 100vh;
+    top : 0;
+    position : fixed;
+    left : 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top : -2em;
+    z-index : 2;            
+}
+
+
+
+
+
+.modaleDiv {
+    
+    padding : 1em;
+    width: 100%;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    align-items : center;
+    margin : auto;
+    
+    
+}
+
+
+.modale.flex {
+    display : flex;
+}
+
+
+
+
+/*======================== formulaire d'inscription ================*/
+
+.inscriptiontitre {
+    text-align: center;
+}
+
+
+.formInscription div {
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    width : 75%;
+    text-align: center;
+    align-items : center;
+    margin : 2em auto;
+}
+
+/*======================= accueil ============================*/
+.accueil {
+    width : 90vw;
+    margin : auto;
+}
+.accueilContain1 {
+    border-bottom : 1px solid #f7d082;
+    padding-bottom : 5em;
+}
+
+.accueilContain1 h1, .accueilContain1 h3 {
+    margin-top : 2em;
+    text-align : center;
+    color : #f7d082 ;
+}
+
+picture {
+    display : flex;
+    justify-content : center;
+}
+.imgAccueil {
+    width : 100%;
+    height : auto;
+    margin : 2em auto;
+    border-radius : 5%;
+}
+
+
+.accueilContain2 {
+    margin-top : 4em;
+    
+}
+
+.accueilContain2 div {
+    margin-bottom : 2em;
+}
+
+
+
+
+
+.head1 {
+    float : right;
+    margin-left : 10px;
+    margin-top : 10px;
+}
+
+.head2 {
+    float : left;
+    margin-right : 10px;
+    margin-top : 10px;
+}
+
+.accueilContain2 img{
+    width : 20%;
+    height : auto;
+}
+
+
+.accueilContain3 {
+    display : flex;
+    flex-direction : column;
+    
+}
+
+.accueilContain3 img {
+    margin-top : 2em;
+}
+
+
+
+.accueilContain4 {
+    margin-top : 5em;
+}
+
+iframe {
+    width : 100%;
+    height : auto;
+    
+    margin-top : 2em;
+}
+
+.articleMotivation {
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    padding : 3em 0.5em;
+}
+
+.imgMotivation {
+    width : 50%;
+    height : auto;
+    margin-bottom : 2em;
+   border-radius : 10%;
+}
+
+.articleMotivation p {
+    text-align : center;
+}
+
+.citation {
+    margin-top : 2em;
+    text-align : center;
+}
+
+blockquote {
+    color : #879f85;
+}
+
+
+/*======================= personalPage =======================*/
+
+
+.accueilPersonalPage {
+    
+    width : 100vw;
+    height : 35vh;
+    
+    background-image : url('../img/personalPage/feuille_tab1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
+}
+
+.accueilPerso {
+    height : 100%;
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    text-align : center;
+    color : white;
+    background-color : rgba(0,0,0, 0.4);
+    
+    
+}
+
+.roue {
+    display : flex;
+    justify-content : flex-end;
+    margin-right : 1em;
+}
+
+
+.roue a {
+    color : black;
+}
+
+.addNew , .nameZone  {
+    margin-top : 2em;
+    margin-left : 2em;
+    margin-bottom : 1em;
+}
+
+
+
+.cards {
+    display : flex;
+    flex-direction : column;
+    justify-content : space-evenly;
+    align-items : center;
+    width : 100vw;
+    margin-top : 1em;
+}
+
+.card {
+    width : 20em;
+    height : 10em;
+    display : flex;
+   
+    justify-content: space-evenly;
+    align-items : center;
+    margin-top : 1em;
+    margin-bottom : 2em;
+    text-align : center;
+    background-color: #d7a285;
+    border : 5px solid #5d3926!important;
+    border-radius : 10px;
+}
+
+.photoProfilCards {
+    height : 6.25em;
+    width : 8.5em;
+    object-fit : cover;
+    margin-top : 20px;
+    margin-bottom : 20px;
+    border-radius : 25%;
+}
+
+.infoAnimalShort {
+    display : flex;
+    flex-direction : column;
+    justify-content : space-evenly;
+    align-items : center;
+    height : 90%;
+}
+
+.InfoImportante {
+    padding : 1em 1em;
+}
+
+
+
+/*=============== articles =====================*/
+
+
+.articles {
+    width : 20em;
+    min-height : 12em;
+    background-color: #d7a285;
+    border : 5px solid #5d3926!important;
+    border-radius : 10px;
+    text-align : center;
+    margin-top : 2em;
+    display : flex;
+    flex-direction : column;
+    justify-content : space-evenly;
+}
+
+.title {
+    text-decoration : underline black;
+}
+
+.infoRubrique {
+    margin : 1em auto;
+}
+
+.lien {
+    margin : auto;
+    text-align : center;
+}
+
+.contenuRubrique {
+    padding : 15px;
+}
+
+
+
+/*====================== animalPage ==================*/
+
+.animalPage{
+    text-align : center;
+    margin-top : 2em;
+    margin-bottom : 2em;
+}
+
+.photoProfil {
+    height : 200px;
+    width : 200px;
+    object-fit : cover;
+    margin-top : 20px;
+    margin-bottom : 20px;
+    border-radius : 10%;
+}
+
+/*.animalInformation {*/
+/*    width : 80vw;*/
+/*}*/
+
+.animalInfo {
+    display : flex;
+    /*justify-content : space-between;*/
+}
+
+ .animalInfo p {
+    padding-left : 1em; 
+    font-size : 1.23em;
+    
+}
+
+.animalDescr {
+    text-align : left;
+}
+
+
+.mod-sup {
+    margin-top : 2em;
+    width : 300px;
+}
+
+.btn-supr {
+    margin-left : 2em;
+}
+
+.tableInfo {
+    width : 70vw;
+    margin : 3em auto;
+    text-align : left;
+    border-collapse: collapse;
+    
+}
+
+
+
+th, td {
+  padding: 10px 20px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f7d082;
+}
+
+tbody tr:last-child {
+  background-color: #fff;
+  
+}
+
+
+.descri {
+    text-align : justify;
+}
+
+/*=========================  admin   ========================= */
+
+.table_admin {
+    width: 90vw;
+    
+    margin: 2em auto;
+    overflow-y: scroll;
+   
+}
+
+#supUser {
+    padding : 5px 10px;
+}
+
+.formNewUser {
+    margin-top : 2em;
+}
+
+
+.searchBarUsersByAdmin {
+    margin-top : 2em;
+    margin-left : 2em;
+}
+
+
+
+
+
+
+
+/* ======================== noteFoundPage ==================== */
+
+.notFound {
+    width : 100vw;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    justify-content : center;
+}
+
+.notFound div {
+    margin : 2em 0 ;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    justify-content : center;
+}
+
+.corgi404 {
+    width : 70%;
+    height : auto;
+}
+
+.text404 {
+    margin-bottom : 2em;
+} 
+
+
+
+/* ========================  footer  =========================*/
+
+footer {
+    display : flex;
+    flex-direction: column;
+    width : 100vw;
+    align-items : center;
+    justify-content : space-between;
+    background-color: #d7a285;
+    text-align : center;
+    height : auto;
+    margin-top : 2em;
+    
+    
+}
+li, a {
+
+    text-decoration : none;
+    list-style-type : none;
+    color: white;
+
+}
+
+footer div {
+    margin-top : 1.5em;
+    margin-bottom : 0;
+    
+}
+
+footer h3 {
+    margin-bottom : 0.5em;
+}
+
+.footerimgdiv {
+    margin-bottom : 0;
+}
+
+.footerimg {
+    height: 16em;
+    width: auto;
+    
+    margin-top: 2em;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  ================   MEDIA QUERIES =====================*/
+
+
+@media screen and (min-width : 768px) {
+    
+/*==================== accueil tablette =======================*/
+    
+.accueilContain2 {
+    margin-top : 4em;
+    height : 30em;
+    
+}
+
+.accueilContain2 div {
+    padding : 2em;
+    margin-bottom : 2em;
+}
+
+
+
+
+
+.head1 {
+    float : right;
+    margin-left : 20px;
+    margin-top : 10px;
+}
+
+.head2 {
+    float : left;
+    margin-right : 20px;
+    margin-top : 10px;
+}
+
+.accueilContain2 img{
+    width : 20%;
+    height : auto;
+}
+    
+
+
+
+.accueilContain3 {
+    width : 100%;
+    margin : 4em auto;
+    display : grid;
+    grid-template-columns : 50% 50%;
+    grid-template-areas : 
+    "img1 img2"
+    "img3 img4"
+    "img5 img6";
+    gap : 0.5em;
+}
+
+
+.img1 {
+   grid-area : img1;
+   width : 100%;
+   height : auto;
+   transition: transform .2s;
+}
+
+.img2 {
+    grid-area : img2; 
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img3 {
+    grid-area : img3;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img4 {
+    grid-area : img4;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img5 {
+    grid-area : img5;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img6 {
+    grid-area : img6;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img1:hover {
+    transform: scale(1.2);
+    
+}
+.img3:hover {
+    transform: scale(1.2);
+   
+}
+
+.img5:hover {
+    transform: scale(1.2);
+    
+}
+
+
+.img2:hover {
+    transform: scale(1.2);
+    
+}
+
+.img4:hover {
+    transform: scale(1.2);
+    
+}
+
+.img6:hover {
+    transform: scale(1.2);
+    
+}
+
+.accueilContain4 {
+    margin-top : 5em;
+    display : flex;
+    justify-content : center ;
+    margin-bottom : 5em;
+}
+
+iframe {
+    width : 80vw;
+    height : 100%;
+    
+    margin-top : 2em;
+}
+
+.articleMotivation {
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    padding : 3em 0.5em;
+    
+}
+
+.imgMotivation {
+    width : 80%;
+    height : auto;
+   
+}
+
+/* ====================== personalPage tablette =================*/
+
+.cards {
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+    /*align-items : flex-start;*/
+    justify-content : flex-start;
+    margin-left : 1em;
+    width : 100vw;
+    
+}
+
+.card , .articles {
+    margin-left : 3em;
+}
+
+.zone_comu {
+    width : 500px;
+}
+
+form {
+    width : 500px;
+}
+
+
+input {
+    width : 400px;
+   
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width : 1024px) {
+    
+    
+    
+    
+    /*==================== accueil pc =======================*/
+    
+.accueilContain2 {
+    margin-top : 4em;
+    height : 30em;
+    
+}
+
+.accueilContain2 div {
+    padding : 2em auto;
+    margin-bottom : 10em;
+    
+}
+
+.imgAccueil {
+    width : 50%;
+    height : auto;
+    
+}
+
+
+
+.head1 {
+    float : right;
+    margin-left : 20px;
+    margin-top : 10px;
+}
+
+.head2 {
+    float : left;
+    margin-right : 20px;
+    margin-top : 10px;
+}
+
+.accueilContain2 img{
+    width : 15%;
+    height : auto;
+}
+    
+
+
+
+.accueilContain3 {
+    width : 100%;
+    margin : 4em auto;
+    display : grid;
+    grid-template-columns : 33% 33% 33%;
+    grid-template-areas : 
+    "img1 img2 img3"
+    "img4 img5 img6";
+    
+    gap : 0.5em;
+}
+
+
+.img1 {
+   grid-area : img1;
+   width : 100%;
+   height : auto;
+   transition: transform .2s;
+ 
+}
+
+.img2 {
+    grid-area : img2; 
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img3 {
+    grid-area : img3;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img4 {
+    grid-area : img4;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img5 {
+    grid-area : img5;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img6 {
+    grid-area : img6;
+    width : 100%;
+    height : auto;
+    transition: transform .2s;
+}
+
+.img1:hover {
+    transform: scale(1.2);
+    
+}
+.img3:hover {
+    transform: scale(1.2);
+   
+}
+
+.img5:hover {
+    transform: scale(1.2);
+    
+}
+
+
+.img2:hover {
+    transform: scale(1.2);
+    
+}
+
+.img4:hover {
+    transform: scale(1.2);
+    
+}
+
+.img6:hover {
+    transform: scale(1.2);
+    
+}
+
+.accueilContain4 {
+    margin-top : 5em;
+    display : flex;
+    justify-content : center ;
+    margin-bottom : 5em;
+}
+
+iframe {
+    width : 80vw;
+    height : 100%;
+    
+    margin-top : 2em;
+}
+
+
+.cards {
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+   
+    justify-content : flex-start;
+    
+    width : 100vw;
+    
+}
+.card , .articles {
+    margin-left : 7em;
+    
+}
+
+form {
+    width : 800px;
+}
+
+
+input {
+    width : 500px;
+   
+    
+}
+
+
+.articleMotivation {
+    display : flex;
+    justify-content : space-evenly;
+    
+    
+}
+
+.imgMotivation {
+    width : 50%;
+    height : auto;
+   
+}
+
+
+
+
+/* ======================== notFoundPage ==================== */
+
+.notFound {
+    
+    flex-direction : row;
+    
+}
+
+
+
+
+
+
+
+/* =========================== footer ========================= */
+
+footer {
+    display : flex;
+    flex-direction : row;
+    width : 100vw;
+    align-items : flex-start;
+    justify-content : space-evenly;
+    background-color: #d7a285;
+    text-align : center;
+    height : auto;
+    margin-top : 2em;
+    
+    
+    
+}
+    
+    
+    
+    
+    
+}

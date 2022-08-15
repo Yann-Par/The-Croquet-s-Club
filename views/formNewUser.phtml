@@ -1,0 +1,49 @@
+<section>
+    
+    <h1 class='inscriptiontitre'>Inscription !</h1>
+    
+    <form action="index.php?route=requestNewUser" method="POST"  class="formInscription">
+        <p>* : Champs obligatoire</p>
+        
+        <div>
+            <label for="lastname"> Votre Nom : (max 10 characteres) *</label>
+            <input type="text" name="lastname"   value="" placeholder="nom..."/>
+        </div>
+        
+        <div>
+            <label for="firstname"> Votre Prenom : (max 10) *</label>
+            <input type="text" name="firstname"   value="" placeholder="prenom..."/>
+        </div>
+        
+        <div>
+            <label for="email"> Votre Email : *</label>
+            <input type="email " name="mail"  value="" placeholder="email..."/>
+        </div>
+        
+        <div>
+            <p id="maj">1 majuscule</p>
+            <p id="chi">1 chiffre</p>
+            <p id="car">8 caractères</p>
+        </div>
+        
+        <div>
+            <label for="password"> Votre Mot de passe : *</label>
+            <input type="password" name="password"  id="mdp"  placeholder="mot de passe..."/>
+        </div>
+        
+         <?php if( isset($_SESSION['erreur']) ) : ?>
+                <p class="msg-err">
+                    <span class="error-message"><?= $_SESSION['erreur'] ?></span>
+                </p>
+        <?php endif; ?>
+        
+        <div>
+            <button type="submit" name="enregistrer" class="btn">S'enregistrer</button>
+        </div>
+    
+    </form>
+    
+    
+    
+    <script type="text/javascript" src="./public/js/mdpVerifSecure.js"></script>
+</section>

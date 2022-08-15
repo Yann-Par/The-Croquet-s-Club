@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>The Croquett's Club</title>
+    
+    <meta name="description" content="Bonjour, L'équipe du Croquett's Club a le plaisir de vous recevoir! Le but de notre application est de permettre à tous les pocesseurs d'animaux de pouvoir avoir une zone communautaire où chacun peut partager ses conseils sur differents thèmes en rapport avec ses animaux : chiens, chats, oiseaux... Vous pourrez ajouter vos animaux et publier vos articles visibles par tous.
+        Yann PARIS" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="public/css/style.css" type="text/css" />
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    
+    
+</head>
+<body>
+    <header>
+        <nav id="headerHaut">
+            
+            <div id="logo">
+                <a href="index.php?route=accueil" title="accueil"><img  src="./public/img/logo/logo.png" alt="logo the croquett's Club"/></a>
+            </div>
+            
+            <div id="navbarMobTab">
+                
+                <div class="switchConnect" >
+                    
+                    <!--Si nous sommes connecté le boutons deconnexions apparait, sinon c'est la tete de chien qui ouvre la modale de connexion-->
+                    <?php if(isset($_SESSION['connect']) || isset($_SESSION['admin'])): ?>
+                        <div>
+                            <a href="index.php?route=deconnect" class="deconnect btn-red" title="deconnexion">Déconnexion</a>
+                        </div>
+                        
+                        <?php else: ?>
+                        <div class="headConnect">
+                            <div class="connexion" id="connexion" title="connexion" >
+                                <img class="connexion" src="./public/img/connexion/corgi.png" alt="connexion"/>
+                            </div>
+                        </div>   
+                    
+                    <?php endif; ?>
+                    
+                </div>    
+                 
+                 
+                <!--menu burger-->
+                <div id="burg" title="menu">
+                    
+                    <div id="mySideNav" class="sidenav">
+                        
+                        <a id="closeBtn" href="#" class="close">></a>
+                        <ul>
+                            <!--affiche le tableau de bord que si on est connecté en admin-->
+                            <?php if(isset($_SESSION['admin'])): ?>
+                            
+                                <li><a href="index.php?route=tableau_de_bord">Tableau de Bord</a></li>
+                            
+                            <?php endif ; ?>
+                            
+                            <!--affiche la page profil que si on est connecté en utilisateur-->
+                            <?php if(isset($_SESSION['connect'])): ?>
+                            
+                                <li><a href="index.php?route=personalPage">Mon Profils</a></li>
+                            <?php endif ; ?>
+                            
+                                <li><a href='index.php?route=history'>Notre histoire</a></li>
+                                <li><a href='index.php?route=motivations'>Nos motivations</a></li>
+                                <li><a href='index.php?route=zoneComunautaire'>Articles Communauté</a></li>
+                            
+                        </ul>
+                        
+                        <img  class="sidenavimg" src="./public/img/nav/readCorgi.png" alt="image chien qui regarde ses notes">
+                            
+                    </div>
+                    
+                    <div id="openBtn">
+                        <span class="burger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </nav>
+        
+        
+        <!--balise pour faire une ligne de couleur basse sur le header-->
+        <div id="headerBas"></div>
+    </header>
+    
+    
+    
+    
+    
+    <main>
+        
+        <?php include_once $view; ?>
+        
+    </main>
+    
+    
+    
+    
+    
+    
+    <footer>
+        <div>
+            <h3>Coordonnées</h3>
+            <ul>
+                <li>PARIS YANN</li>
+                <li><a href="tel:+33687903401">06.87.90.34.01</a></li>
+                <li><a href="mailto:paris.yann@outlook.fr">paris.yann@outlook.fr</a></li>
+                <li>5, La Montée du Boucholet</li>
+                <li>85140, Chauché</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Plan du site</h3>
+            <ul>
+                <li><a href="index.php?route=history" title="Notre histoire">Notre histoire</a></li>
+                <li><a href="index.php?route=motivations" title="Notre Motivation">Nos Motivations</a></li>
+                <li><a href="index.php?route=zoneComunautaire" title="Zone comunautaire">Articles Communauté</a></li>
+                
+            </ul>
+        
+        </div>
+        
+        
+            <img class='footerimg' src="public/img/footer/corgiFooter.png" alt="corgi qui leve la patte " />
+        
+        
+    </footer>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--Modale de connexion qui apparait quand nous cliquons sur la tète du chien dans le header-->
+    <!--la class modale est en display none par default pour rester cacher, en JS avec un écouteur d'évenement on lui donne le display : flex pour la faire apparaitre lorsque l'on click sur la tete de chien et on lui remet display none lorsque l'on click en dehors du formulaire-->
+    <!--la ternaire est activé en fonction de si il y a eu un msg d'erreur lors de la saisie de l'identifiant ou du mdp pour rester afficher lorsque la page se recharge-->
+    <div class="modale <?= (isset($_SESSION['message'])) ? "flex" : "" ?> ">
+        
+        
+        
+        <img class="modaleCorgi" src="./public/img/connexion/modaleCorgi.png" alt="tete de corgi pour se connecter"/>
+        
+        
+        <form class="modaleForm" action="index.php?route=submitConnexion" method="Post">
+                
+            <div class="modaleDiv">
+                <h3>Hey! Tu te connecte?</h3>
+            </div>
+                
+                
+            <div class="modaleDiv">
+                <label for="email">Email :</label>
+                <input class="form-control" type="email" name="mail" id="email"/>
+            </div> 
+            
+            
+            <div class="modaleDiv">
+                <label for="password">Mot de Passe :</label>
+                <input class="form-control" type="password" name="password" id="password"/>
+            </div>
+              
+                
+            <button class="btn" type="submit" name="enregistrer">On se connecte ?!</button>
+                
+                
+            <?php if( isset($_SESSION['message']) ) : ?>
+                <p class="msg-err">
+                    <span class="error-message"><?= $_SESSION['message'] ?></span>
+                </p>
+            <?php endif; ?>
+               
+                
+            <div class="modaleDiv">
+                <p>Tu es nouveau ? <a href="index.php?route=formNewUser" title="Créer son compte">C'est par ici !</a></p>
+            </div>
+            
+        </form>
+            
+    </div>    
+            
+            
+            
+            <!--lien de connexion aux fichiers js-->
+            <script  src="./public/js/nav.js"></script>
+            <script  src="./public/js/connexion.js"></script>
+            
+            
+</body>
+</html>

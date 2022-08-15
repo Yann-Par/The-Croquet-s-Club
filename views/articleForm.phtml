@@ -1,0 +1,60 @@
+<section class="formulaire">
+    
+    <h1><?= $editMode ? "Modifier mon article" : "Ajoutez un nouvel article" ?></h1>
+    
+    <form action="<?= $editMode ? "index.php?route=updateArticle" : "index.php?route=submitArticle" ?>" method="POST" class="formInscription" >
+        
+        <div>
+            <label for="title"> Choisir une rubrique : </label>
+            <select name="category_id">
+                <?php foreach($categories as $category) : ?>
+                    <option  value="<?= $category['id_category'] ?>" <?= $editMode && $category['id_category'] === $updateArticles['category_id'] ? 'selected' : '' ; ?>> <?= $category['category_name'] ; ?></option>
+                <?php endforeach; ?>
+                
+            </select>
+        </div>
+        
+        
+        
+        <div>
+            <label for="title"> Titre de votre article : </label>
+            <input type="text" name="title" value="<?= $editMode ? $updateArticles['title'] : '' ?>">
+        </div>
+        
+        
+        <div>
+            <label for="info_rubrique"> Sujet de votre article : </label>
+            <input type="text" name="info_rubrique" value="<?= $editMode ? $updateArticles['info_rubrique'] : '' ?>">
+        </div>
+        
+        
+        <div>
+            <label for="contenu_rubrique">Description :</label>
+            <textarea name="contenu_rubrique" rows="4" cols="30" /><?= $editMode ? $updateArticles['contenu_rubrique'] : '' ?></textarea>
+        </div>
+        
+        
+        <input type="hidden" name="users_id" value="<?= $user['id_users'] ?>">
+         
+        <?php if( $editMode ) : ?>
+                <input type="hidden" name="id_article" value="<?= $updateArticles['id_articles'] ?>"/>
+        <?php endif; ?>
+         
+        
+        
+        <?php if( isset($_SESSION['err_art']) ) : ?>
+            <p class="msg-err">
+                <span class="error-message">
+                    <?= $_SESSION['err_art'] ; ?>
+                </span>
+            </p>
+        <?php endif; ?>
+        
+        
+        <button type="submit" class="btn"> <?= (isset($updateArticles))? "Mettre a jour" : "Ajouter" ?> </button>
+        
+    </form>
+    
+    
+    
+</section>

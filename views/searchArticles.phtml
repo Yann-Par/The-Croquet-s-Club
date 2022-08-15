@@ -1,0 +1,19 @@
+
+        <!--grace a la variables articles; on fait une boucle foreach pour récuperer chaque article parmis tous les articles en base de données-->
+        <?php foreach($articles as $article ) : ?>
+        
+            <div class="articles zone_comu">
+    
+                    
+                <h3 class="title"> <?= htmlspecialchars($article['title'] ); ?> </h3>
+                
+                <div>
+                    
+                    <h4 class="infoRubrique"> <?= htmlspecialchars($article['info_rubrique']) ; ?> </h4>
+                    <p class="contenuRubrique"><?= htmlspecialchars($article['contenu_rubrique']) ; ?></p>
+                    
+                </div>
+            </div>
+        
+        <?php endforeach ; ?>
+    
